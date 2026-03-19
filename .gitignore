@@ -5,4 +5,6 @@ outbox/
 *.mp4
 *.webm
 *.png
+!assets/*.webm
+!assets/*.png
 .DS_Store

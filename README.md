@@ -62,6 +62,36 @@ python main.py
 
 ---
 
+## 🎬 Live Walkthrough & Demo
+
+This system natively leverages Playwright's browser automation capability to autonomously log into your dashboard, await asynchronous content hydration, and extract lead data directly from the DOM!
+
+### Dashboard Extraction Screenshot
+Here is a snapshot of the Chromium browser safely navigating past the authentication portal into the Bark Dashboard:
+
+![Dashboard Screenshot](./assets/dashboard_screenshot.png)
+
+### Auto-Generated Proposal Demonstration
+Based on the Lead input, the NVIDIA Llama 3.1 70B model analyzes the buyer intent and evaluates if the budget constraints match the ICP. If the score exceeds `0.8`, the Agent organically leverages distinct data points from the description to draft a three-paragraph hyper-contextual cover letter into the `outbox/` directory:
+
+```text
+[Communicator] Drafting highly contextual proposal for L-1001 via NVIDIA API...
+✅ Contextual proposal safely drafted to outbox/L-1001_proposal.txt
+
+--- Generated Cover Letter ---
+Hi there! I noticed your buyer request on Bark detailing your need for a bespoke headless WordPress solution, and I was immediately drawn to the project. Your requirement for seamless integration with a custom HubSpot CRM aligns perfectly with our agency's core expertise.
+
+Our engineers specialize in high-performance headless architecture utilizing Next.js as the front-end layer for WordPress. By decoupling the CMS, we can guarantee lightning-fast load times for your boutique agency's client. Additionally, we have extensive experience mapping complex data structures straight into HubSpot via their API, ensuring your marketing automation workflows remain uninterrupted and highly tailored to your new site.
+
+Given your stated budget of $5,500+, we have more than enough scope to architect a premium, scalable solution that exceeds your client's expectations without compromising on speed or security. I'd love to schedule a brief discovery call this week to walk you through similar headless CRM integrations we've successfully deployed. Let me know what day works best!
+------------------------------
+```
+
+### 📹 Full Execution Video
+You can watch the fully automated headless-browser extraction and LLM pipeline [right here in our demo video](./assets/demo_video.webm)!
+
+---
+
 <div align="center">
   <i>Developed as an architectural Proof-of-Concept for autonomous Sales Qualification.</i>
 </div>
