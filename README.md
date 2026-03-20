@@ -1,64 +1,31 @@
-# 🤖 Bark AI Autonomous Agent - Proof of Concept
-
 <div align="center">
-  <h3>Intelligent Lead Scraping, AI Qualification, & Automated Pipeline</h3>
+  <h1>🤖 Bark AI Agent</h1>
+  <p><b>Autonomous Lead Scraping, AI Qualification, & Automated Pitch Pipeline</b></p>
   <p>A Python-powered AI Agent engineered to autonomously browse Bark.com, extract service leads, evaluate semantic fit using NVIDIA's Llama 3.1 70B, and formulate highly-personalized sales pitches.</p>
+
+  <p>
+    <img src="https://img.shields.io/badge/Python-3.11-blue?style=for-the-badge&logo=python" alt="Python" />
+    <img src="https://img.shields.io/badge/Playwright-Automation-orange?style=for-the-badge&logo=playwright" alt="Playwright" />
+    <img src="https://img.shields.io/badge/NVIDIA-NIM_API-76B900?style=for-the-badge&logo=nvidia" alt="NVIDIA" />
+    <img src="https://img.shields.io/badge/OpenAI-SDK-black?style=for-the-badge&logo=openai" alt="OpenAI SDK" />
+  </p>
 </div>
 
 ---
 
-## 🚀 Key Features
-
-- 🕵️ **Autonomous Web Navigation:** Uses **Playwright** to navigate portals and simulate human interactions, efficiently waiting for dynamically-loaded DOM elements.
-- 🧠 **Intelligent Qualification:** Configured with the **NVIDIA NIM API** (utilizing the `openai` Python SDK) to rapidly score raw lead descriptions against an Ideal Customer Profile (ICP).
-- ✍️ **Contextual Communicator:** Bypasses boilerplate pitches by explicitly forcing the LLM to organically embed at least *two distinct verifiable data points* directly extracted from the buyer's specific request. 
+## 📖 Introduction
+The **Bark AI Agent** is an autonomous sales qualification system. Designed for high-volume service providers, agencies, and freelancers, it completely automates the top-of-funnel lead assessment process. Instead of manually scrolling through Bark.com, reading buyer requests, and writing manual cover letters, this agent does it all while maintaining a highly personalized, human touch.
 
 ---
 
-## 🛠️ Tech Stack 
+## 🚀 Features
 
-- **Python** - Core logic architecture.
-- **Playwright** - Robust Chromium automation supporting DOM timeouts and structural scraping.
-- **NVIDIA Build (Llama 3.1 70B)** - Lightning-fast inference driving the semantic evaluation.
-
----
-
-## 📖 Quick Start Guide
-
-Want to run the backend Agent seamlessly on your own machine? It's incredibly straightforward!
-
-### 1️⃣ Get Your Free NVIDIA API Key
-1. Go to **[NVIDIA AI Platform](https://build.nvidia.com/explore/discover)**.
-2. Sign in and select a model (e.g., `Llama 3.1 70B Instruct`).
-3. Generate and copy your API Key (`nvapi-...`).
-
-### 2️⃣ Configure Local Credentials
-Rename the `.env.example` file to `.env` and paste your key along with your Bark credentials:
-
-```text
-BARK_EMAIL=your_email@example.com
-BARK_PASSWORD=your_password
-NVIDIA_API_KEY=your_nvidia_api_key
-```
-
-### 3️⃣ Installation
-Open your terminal, create an isolated virtual environment, and install the required dependencies:
-```bash
-# 1. Setup Virtual Environment
-python3 -m venv venv
-source venv/bin/activate  # (Use `venv\Scripts\activate` if on Windows)
-
-# 2. Install Packages
-pip install -r requirements.txt
-playwright install chromium
-```
-
-### 4️⃣ Execution
-Trigger the complete agent pipeline:
-```bash
-python main.py
-```
-> **🌟 Pro-Tip:** By default, the application runs natively in *Mock Mode* to instantly demonstrate logic flow. Open `main.py` and change the parameter to `mock_mode=False` to trigger the complete, live Chromium automation that actually browses the web!
+| Feature | Description |
+| :---: | :--- |
+| 🕵️ | **Autonomous Navigation** <br> Bypasses basic headless detection using Playwright to render Bark.com and smoothly extract dynamic DOM elements. |
+| 🧠 | **Intelligent Qualification** <br> Fast, deterministic ICP (Ideal Customer Profile) scoring utilizing NVIDIA's Llama 3.1 70B via the OpenAI SDK. |
+| ✍️ | **Contextual Communicator** <br> GenAI drafts 3-paragraph pitches organically embedding distinct, verifiable data points from the buyer's strict request. |
+| 🗂️ | **Automated Outbox** <br> Successfully qualified leads are automatically saved as ready-to-send `.txt` proposals. |
 
 ---
 
@@ -72,7 +39,7 @@ Here is a snapshot of the Chromium browser safely navigating past the authentica
 ![Dashboard Screenshot](./assets/dashboard_screenshot.png)
 
 ### Auto-Generated Proposal Demonstration
-Based on the Lead input, the NVIDIA Llama 3.1 70B model analyzes the buyer intent and evaluates if the budget constraints match the ICP. If the score exceeds `0.8`, the Agent organically leverages distinct data points from the description to draft a three-paragraph hyper-contextual cover letter into the `outbox/` directory:
+Based on the Lead input, the NVIDIA model evaluates if the budget constraints match the ICP. If the score exceeds `0.8`, the Agent organically drafts a hyper-contextual cover letter into the `outbox/` directory:
 
 ```text
 [Communicator] Drafting highly contextual proposal for L-1001 via NVIDIA API...
@@ -92,6 +59,102 @@ You can watch the fully automated headless-browser extraction and LLM pipeline [
 
 ---
 
+## 🛠️ Tech Stack
+
+**Backend / Automation**
+- `Python 3.11`
+- `Playwright` (Chromium Automation & Networking Interception)
+- `python-dotenv` (Credentials Management)
+
+**AI / Machine Learning**
+- `NVIDIA NIM` (Host Environment)
+- `Llama 3.1 70B Instruct` (Model)
+- `OpenAI Python SDK` (API Interface)
+
+---
+
+## ⚙️ Getting Started
+
+Follow these instructions to safely run the AI Agent on your local machine.
+
+### Prerequisites
+- Python 3.9+
+- An [NVIDIA AI Platform](https://build.nvidia.com/explore/discover) API Key.
+
+### Installation
+
+**1. Clone the repository**
+```bash
+git clone https://github.com/kalkidevs/Mini_ai_agent.git
+cd Mini_ai_agent
+```
+
+**2. Create a virtual environment**
+```bash
+python3 -m venv venv
+source venv/bin/activate  # Windows: venv\Scripts\activate
+```
+
+**3. Install dependencies**
+```bash
+pip install -r requirements.txt
+playwright install chromium
+```
+
+### Environment Setup
+Rename the `.env.example` file to `.env` and configure your credentials:
+```text
+BARK_EMAIL=your_email@example.com
+BARK_PASSWORD=your_password
+NVIDIA_API_KEY=nvapi-your_secret_key_here
+```
+
+### Run Commands
+Trigger the complete agent pipeline:
+```bash
+python main.py
+```
+> **🌟 Tip:** By default, the application runs in *Mock Mode* to instantly demonstrate logic flow. Open `main.py` and change the parameter to `mock_mode=False` to trigger the complete, live Chromium automation that actually browses the web!
+
+---
+
+## 📂 Project Structure
+
+```text
+📦 Mini_ai_agent
+ ┣ 📂 assets/                 # Demo screenshots & videos
+ ┣ 📂 outbox/                 # Generated LLM sales pitches
+ ┣ 📜 .env                    # Secure credential storage (Git-ignored)
+ ┣ 📜 .gitignore              # Dependency & secrets whitelist
+ ┣ 📜 README.md               # You are here
+ ┣ 📜 brain.py                # Handles Semantic Qualification & Scoring
+ ┣ 📜 communicator.py         # Handles 3-paragraph context generation
+ ┣ 📜 main.py                 # Core orchestration execution layer
+ ┣ 📜 requirements.txt        # PIP dependencies
+ ┗ 📜 scraper.py              # Playwright DOM interaction logic
+```
+
+---
+
+## 🤝 Contributing
+
+We welcome contributions to strengthen our web un-blocking heuristics or augment our AI prompting models! 
+
+1. **Fork** the repository
+2. **Create** your feature branch (`git checkout -b feature/AmazingFeature`)
+3. **Commit** your changes (`git commit -m 'Add some AmazingFeature'`)
+4. **Push** to the branch (`git push origin feature/AmazingFeature`)
+5. Open a **Pull Request**
+
+---
+
+## 📄 License
+Distributed under the MIT License. See `LICENSE` for more information.
+
+---
+
 <div align="center">
-  <i>Developed as an architectural Proof-of-Concept for autonomous Sales Qualification.</i>
+  <strong>Built with ❤️ by KalkiDevs</strong>
+  <br>
+  If you found this project helpful, please consider giving it a ⭐!
 </div>
